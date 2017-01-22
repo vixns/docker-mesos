@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  libz-dev libnl-3-dev libnl-route-3-dev libnl-idiag-3-dev \
  libblkid-dev libelf-dev autoconf automake libtool git
 
-RUN git clone https://git-wip-us.apache.org/repos/asf/mesos.git mesos
+RUN git clone -b 1.1.x https://git-wip-us.apache.org/repos/asf/mesos.git mesos
 RUN cd mesos && mkdir build && ./bootstrap && cd build && \
   ../configure --enable-ssl --enable-libevent --prefix=/usr --enable-optimize --enable-silent-rules && \
   make -j $(nproc) V=0 install
